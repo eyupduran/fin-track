@@ -1,27 +1,40 @@
-# DovizTakip
+# FinansTakip
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.14.
+Bu proje, [Truncgil Finans API](https://finans.truncgil.com/) kullanılarak VS Code Copilot Agent ile oluşturulmuş bir altın, döviz ve kripto para fiyatlarını takip eden uygulamadır.
 
-## Development server
+## Kullanım
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+1. Depoyu klonlayın:
+   ```sh
+   git clone <repo-url>
+   cd finans-takip
+   ```
+2. Bağımlılıkları yükleyin:
+   ```sh
+   npm install
+   ```
+3. Geliştirme sunucusunu çalıştırın:
+   ```sh
+   ng serve
+   ```
+   Uygulamayı tarayıcıda açmak için: [http://localhost:4200](http://localhost:4200)
 
-## Code scaffolding
+## API
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Bu proje, anlık altın, döviz ve kripto para fiyatlarını almak için [Truncgil Finans API](https://finans.truncgil.com/) kullanmaktadır.
 
-## Build
+## Özellikler
+- Anlık altın fiyatlarını görüntüleyin
+- Döviz kurlarını takip edin
+- Kripto para fiyatlarını izleyin
+- Kullanıcı dostu ve mobil uyumlu arayüz
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Görseller
 
-## Running unit tests
+Projeden bazı ekran görüntüleri:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+<div style="display: flex; gap: 10px;">
+  <img src="readme-image/1.jpg" alt="Mobil Görsel 1" style="width: 30%;"/>
+  <img src="readme-image/2.jpg" alt="Mobil Görsel 2" style="width: 30%;"/>
+ <img src="readme-image/3.jpg" alt="Mobil Görsel 2" style="width: 30%;"/>
+</div>

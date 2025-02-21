@@ -1,0 +1,45 @@
+<div class="gold-tracking-container">
+  <!-- Search Bar -->
+  <div class="search-container">
+    <span class="p-input-icon-left w-full">
+      <i class="pi pi-search"></i>
+      <input type="text" pInputText [(ngModel)]="searchText" placeholder="Altın ara..." class="search-input w-full">
+    </span>
+  </div>
+
+  <!-- Loading Spinner -->
+  <div *ngIf="loading" class="loading-container">
+    <p-progressSpinner strokeWidth="4" />
+  </div>
+
+  <!-- Gold Cards -->
+  <div *ngIf="!loading" class="gold-grid">
+    <div class="gold-card" *ngFor="let code of getGoldKeys()">
+      <div class="card-header">
+        <fa-icon [icon]="getGoldIcon(code)" class="gold-icon"></fa-icon>
+        <span class="gold-name">{{ formatGoldName(code) }}</span>
+        <div class="header-info">
+          <div class="update-time">
+            <fa-icon [icon]="faClock"></fa-icon>
+            <span>{{ metaData?.Update_Date | date:'HH:mm' }}</span>
+          </div>
+          <span [class]="'change-badge ' + (goldRates![code].Change < 0 ? 'negative' : 'positive')">
+            {{ goldRates![code].Change | number:'1.2-2' }}%
+          </span>
+        </div>
+      </div>
+      
+      <div class="card-body">
+        <div class="price-row">
+          <span class="label">Alış</span>
+          <span class="value">₺{{ goldRates![code].Buying | number:'1.2-2' }}</span>
+        </div>
+        <div class="price-row">
+          <span class="label">Satış</span>
+          <span class="value">₺{{ goldRates![code].Selling | number:'1.2-2' }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

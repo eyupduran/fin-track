@@ -1,0 +1,45 @@
+<div class="crypto-tracking-container">
+  <!-- Search Bar -->
+  <div class="search-container">
+    <span class="p-input-icon-left">
+      <i class="pi pi-search"></i>
+      <input type="text" pInputText [(ngModel)]="searchText" placeholder="Kripto ara..." class="search-input">
+    </span>
+  </div>
+
+  <!-- Loading Spinner -->
+  <div *ngIf="loading" class="loading-container">
+    <p-progressSpinner strokeWidth="4" />
+  </div>
+
+  <!-- Crypto Cards -->
+  <div *ngIf="!loading" class="crypto-grid">
+    <div class="crypto-card" *ngFor="let code of getCryptoKeys()">
+      <div class="card-header">
+        <fa-icon [icon]="getCryptoIcon(code)" class="crypto-icon"></fa-icon>
+        <span class="crypto-name">{{ cryptoRates![code].Name }}</span>
+        <div class="header-info">
+          <div class="update-time">
+            <fa-icon [icon]="faClock"></fa-icon>
+            <span>{{ metaData?.Update_Date | date:'HH:mm' }}</span>
+          </div>
+          <span [class]="'change-badge ' + (cryptoRates![code].Change < 0 ? 'negative' : 'positive')">
+            {{ cryptoRates![code].Change | number:'1.2-2' }}%
+          </span>
+        </div>
+      </div>
+      
+      <div class="card-body">
+        <div class="price-row">
+          <span class="label">USD</span>
+          <span class="value">${{ cryptoRates![code].USD_Price | number:'1.2-2' }}</span>
+        </div>
+        <div class="price-row">
+          <span class="label">TRY</span>
+          <span class="value">₺{{ cryptoRates![code].TRY_Price | number:'1.2-2' }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

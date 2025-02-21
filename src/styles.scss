@@ -1,1 +1,315 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* PrimeNG CSS */
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+/* Font Awesome */
+@import "@fortawesome/fontawesome-free/css/all.css";
+
+/* Global Styles */
+:root {
+    --transition-duration: 0.3s;
+    --menu-bg-light: rgba(0,0,0,0.03);
+    --menu-bg-dark: rgba(255,255,255,0.05);
+    --text-color: #495057;
+    --surface-ground: #f8f9fa;
+    --surface-card: #ffffff;
+    --surface-hover: rgba(0, 0, 0, 0.04);
+    --primary-color: #3B82F6;
+    --primary-color-rgb: 59, 130, 246;
+    --primary-color-text: #ffffff;
+    --surface-border: #e9ecef;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    transition: background-color var(--transition-duration) ease, 
+                color var(--transition-duration) ease;
+    background-color: var(--surface-ground);
+    color: var(--text-color);
+    min-height: 100vh;
+}
+
+/* Dark Theme */
+body.dark-theme {
+    --text-color: #e0e0e0;
+    --surface-ground: #121212;
+    --surface-card: #1e1e1e;
+    --surface-hover: rgba(255, 255, 255, 0.08);
+    --primary-color: #64B5F6;
+    --primary-color-rgb: 100, 181, 246;
+    --primary-color-text: #ffffff;
+    --surface-border: rgba(255, 255, 255, 0.1);
+
+    background-color: #121212;
+    color: #ffffff;
+
+    .p-menubar {
+        background: #1e1e1e;
+        border-color: #383838;
+    }
+
+    .p-tabmenu {
+        .p-tabmenu-nav {
+            background: var(--menu-bg-dark);
+
+            .p-tabmenuitem {
+                .p-menuitem-link {
+                    transition: all var(--transition-duration) ease;
+                    color: #e0e0e0;
+
+                    &:hover {
+                        background: rgba(255,255,255,0.08);
+                    }
+
+                    &.p-highlight {
+                        background: #2d2d2d;
+                        color: #64B5F6;
+                    }
+
+                    .p-badge {
+                        background: rgba(100,181,246,0.2);
+                        color: #64B5F6;
+                    }
+                }
+            }
+        }
+    }
+
+    .currency-list {
+        background-color: #1e1e1e;
+
+        .currency-item {
+            border-color: #2d2d2d;
+            
+            &:hover {
+                background-color: #2d2d2d;
+            }
+        }
+    }
+
+    .p-progressspinner {
+        stroke: #64B5F6 !important;
+    }
+
+    .theme-toggle {
+        i {
+            color: #e0e0e0;
+            transform-origin: center;
+            transition: transform var(--transition-duration) ease;
+        }
+
+        &:hover i {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+/* Theme Toggle Styles */
+.theme-toggle {
+    i {
+        transform-origin: center;
+        transition: transform var(--transition-duration) ease,
+                    color var(--transition-duration) ease;
+    }
+
+    &:hover i {
+        transform: rotate(180deg);
+    }
+}
+
+.p-tabmenu {
+    .p-tabmenu-nav {
+        background: var(--menu-bg-light);
+        border-radius: 24px;
+        padding: 0.25rem;
+        transition: background-color var(--transition-duration) ease;
+
+        .p-tabmenuitem {
+            .p-menuitem-link {
+                transition: all var(--transition-duration) ease;
+
+                .p-badge {
+                    font-size: 0.75rem;
+                    padding: 0.25rem 0.5rem;
+                    border-radius: 12px;
+                    margin-left: 0.5rem;
+                    background: rgba(33,150,243,0.1);
+                    color: #2196F3;
+                    transition: all var(--transition-duration) ease;
+                }
+            }
+        }
+    }
+}
+
+/* Grid System */
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -0.5rem;
+    margin-left: -0.5rem;
+    margin-top: -0.5rem;
+}
+
+.col-12 {
+    flex: 0 0 100%;
+    padding: 0.5rem;
+}
+
+@media screen and (min-width: 768px) {
+    .md\:col-6 {
+        flex: 0 0 50%;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .lg\:col-3 {
+        flex: 0 0 25%;
+    }
+    .lg\:col-4 {
+        flex: 0 0 33.3333%;
+    }
+}
+
+/* Utility Classes */
+.flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.gap-2 {
+    gap: 0.5rem;
+}
+
+.gap-3 {
+    gap: 0.75rem;
+}
+
+.gap-4 {
+    gap: 1rem;
+}
+
+.mb-2 {
+    margin-bottom: 0.5rem;
+}
+
+.mb-3 {
+    margin-bottom: 0.75rem;
+}
+
+.mr-2 {
+    margin-right: 0.5rem;
+}
+
+.p-3 {
+    padding: 0.75rem;
+}
+
+.p-4 {
+    padding: 1rem;
+}
+
+/* Currency List Shared Styles */
+.currency-list {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    overflow: hidden;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.text-sm {
+    font-size: 0.875rem;
+}
+
+.text-4xl {
+    font-size: 2.25rem;
+}
+
+.h-full {
+    height: 100%;
+}
+
+/* Responsive Spacing */
+@media screen and (max-width: 768px) {
+    .p-4 {
+        padding: 0.75rem;
+    }
+
+    .gap-4 {
+        gap: 0.75rem;
+    }
+
+    .p-tabmenu {
+        .p-tabmenu-nav {
+            border-radius: 16px;
+            
+            .p-tabmenuitem {
+                .p-menuitem-link {
+                    .p-badge {
+                        font-size: 0.7rem;
+                        padding: 0.2rem 0.4rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .theme-toggle {
+        transform: scale(0.9);
+    }
+}
+
+/* Theme Toggle Animation */
+.theme-toggle i {
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: rotate(15deg);
+    }
+}
+
+/* Theme transition */
+*, *::before, *::after {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* PrimeNG component theme overrides */
+.p-menubar,
+.p-tabmenu .p-tabmenu-nav,
+.p-tabmenuitem .p-menuitem-link {
+    background: var(--surface-card) !important;
+    color: var(--text-color) !important;
+}
+
+.p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link {
+    background: var(--primary-color) !important;
+    color: var(--primary-color-text) !important;
+}
+
+.p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link:not(.p-disabled):focus {
+    box-shadow: none !important;
+}
+
+/* Reset transition for specific properties */
+.p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}

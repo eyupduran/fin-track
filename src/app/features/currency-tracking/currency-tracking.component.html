@@ -1,0 +1,47 @@
+<!-- Currency Dashboard -->
+<div>
+  <div class="currency-tracking-container">
+    <!-- Search Bar -->
+    <div class="search-container">
+      <span class="p-input-icon-left w-full">
+        <i class="pi pi-search"></i>
+        <input type="text" pInputText [(ngModel)]="searchText" placeholder="Döviz ara..." class="search-input w-full">
+      </span>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div *ngIf="loading" class="loading-container">
+      <p-progressSpinner strokeWidth="4" />
+    </div>
+
+    <!-- Currency Cards -->
+    <div *ngIf="!loading" class="currency-grid">
+      <div class="currency-card" *ngFor="let code of getCurrencyKeys()">
+        <div class="card-header">
+          <fa-icon [icon]="getCurrencyIcon(code)" class="currency-icon"></fa-icon>
+          <span class="currency-name">{{ currencyData![code].Name }}</span>
+          <div class="header-info">
+            <div class="update-time">
+              <fa-icon [icon]="faClock"></fa-icon>
+              <span>{{ metaData?.Update_Date | date:'HH:mm' }}</span>
+            </div>
+            <span [class]="'change-badge ' + (currencyData![code].Change < 0 ? 'negative' : 'positive')">
+              {{ currencyData![code].Change | number:'1.2-2' }}%
+            </span>
+          </div>
+        </div>
+        
+        <div class="card-body">
+          <div class="price-row">
+            <span class="label">Alış</span>
+            <span class="value">₺{{ currencyData![code].Buying | number:'1.2-4' }}</span>
+          </div>
+          <div class="price-row">
+            <span class="label">Satış</span>
+            <span class="value">₺{{ currencyData![code].Selling | number:'1.2-4' }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
